@@ -19,7 +19,7 @@ def create_files_from_json(json_data):
     timestamp_prefix = str(int(time.time()))
 
     for file in files:
-      path = os.path.join(timestamp_prefix, file.get('path').lstrip('/'))
+      path = os.path.join(timestamp_prefix, file.get('path', '').lstrip('/')) or timestamp_prefix
       name = file.get('name')
       content = file.get('content')
       
